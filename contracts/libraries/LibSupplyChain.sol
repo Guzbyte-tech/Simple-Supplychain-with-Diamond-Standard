@@ -25,13 +25,17 @@ library LibSupplyChain {
         string productSerialNumber;
         string fromLocation;
         string toLocation;
-        string status; // E.g., "In Transit", "Delivered"
+        ShippingStatus status; // E.g., "In Transit", "Delivered"
         uint256 shippedAt;
+        uint256 shippingFee;
         uint256 deliveredAt;
+        address recipient;
     }
 
     struct SupplyChainStorage {
+        
         uint256 productCount;
+        uint256 shippingCount;
 
         mapping(uint256 => Product) productIdToProduct;
         mapping(address => uint256[]) manufacturerToProductIds;
